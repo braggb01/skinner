@@ -1,0 +1,16 @@
+<% content_for :page_title do %>
+      <h1><%= @project.title %></h1>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= link_to 'Edit', edit_project_path(@project) %><br/>
+  <%= link_to 'Back', projects_path %>
+<% end %>
+
+<h4>Task List Name</h4>
+<ul>
+	<li>Tasks</li>
+	<ul>
+		<li>Comments</li>
+	</ul>
+</ul>

@@ -1,0 +1,37 @@
+<% content_for :page_title do %>
+      <h1>Projects</h1>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= link_to 'New Project', new_project_path %>
+<% end %>
+
+
+<ul class="thumbnails">
+  <% @projects.each do |project| %>
+  <li class="span3">
+    <%= link_to( image_tag( placeholder_image_url "260x180", :bg => "EFEFEF", :fg => "333333", :text => project.title), project, :class => "thumbnail") %>
+  </li>
+  <% end %>
+</ul>
+  
+<!-- <table>
+
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.title %></td>
+    <td><%= link_to 'Show', project %></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table> -->
+
+

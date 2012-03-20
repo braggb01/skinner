@@ -1,0 +1,30 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+ 
+			<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+ 
+			<!-- Be sure to leave the brand out there if you want it shown -->
+			<a class="brand" href="#">Skinner</a>
+ 
+			<!-- Everything you want hidden at 940px or less, place within here -->
+			<div class="nav-collapse">
+			<!-- .nav, .navbar-search, .navbar-form, etc -->
+				<ul class="nav pull-right">
+					<li><%= link_to "Dashboard" %></li>
+					<li class="divider-vertical"></li>
+					<li><%= link_to "Projects", projects_path %></li>
+					<li class="divider-vertical"></li>
+					<li><%= link_to "Calendar" %></li>
+					<li class="divider-vertical"></li>
+					<li><%= link_to "Sign In" %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

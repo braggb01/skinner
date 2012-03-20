@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyText
+  section_id: 1
+  due_date: 2012-03-19
+
+two:
+  description: MyText
+  section_id: 1
+  due_date: 2012-03-19
