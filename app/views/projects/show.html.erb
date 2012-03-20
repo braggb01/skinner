@@ -1,16 +1,36 @@
 <% content_for :page_title do %>
-      <h1><%= @project.title %></h1>
+	<div class="page-header">
+    	<h1><%= @project.title %></h1>
+    </div>
 <% end %>
 
 <% content_for :sidebar do %>
-  <%= link_to 'Edit', edit_project_path(@project) %><br/>
-  <%= link_to 'Back', projects_path %>
+	<!-- <div class="well"> -->
+		<ul class="nav nav-pills nav-stacked">
+			<li><%= link_to 'Edit', edit_project_path(@project) %></li>
+			<li><%= link_to 'Back', projects_path %></li>
+		</ul>
+	<!-- </div> -->
+
 <% end %>
 
-<h4>Task List Name</h4>
-<ul>
-	<li>Tasks</li>
-	<ul>
-		<li>Comments</li>
-	</ul>
-</ul>
+
+<%= form_for(Section.new, :html => {:class => "form-inline"}) do |f| %>
+    <%= f.label "Add a Task:  " %>
+    <%= f.text_field :title %>
+    <%= f.hidden_field :project_id, :value => @project.id %>
+    <%= f.submit "Create", :class => "btn" %>
+<% end %>
+
+<% @project.sections.each do |section| %>
+    <span class="wrapped">
+    	<p class="section">
+    		<%= link_to section.title, section_path(section) %> | <span><%= link_to 'Edit', edit_section_path(section) %></span>
+    	</p>
+		<% section.tasks.each do |task| %>
+	    <p class="task">
+	    	<%= on_the_spot_edit task, :complete, type: :checkbox %><%= on_the_spot_edit task, :description %> | <%= task.due_date %> | <span><%= link_to 'Edit', edit_task_path(task) %><span>
+	    </p>
+	</span>
+	<% end %>
+<% end %>

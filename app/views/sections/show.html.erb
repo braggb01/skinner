@@ -1,15 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% content_for :page_title do %>
+	<div class="page-header">
+    	<h1><%= @section.title %></h1>
+    </div>
+<% end %>
 
-<p>
-  <b>Title:</b>
-  <%= @section.title %>
-</p>
+<% content_for :sidebar do %>
+	<!-- <div class="well"> -->
+		<ul class="nav nav-pills nav-stacked">
+			<li><%= link_to 'Edit', edit_section_path(@section) %></li>
+			<li><%= link_to 'Back', sections_path %></li>
+		</ul>
+	<!-- </div> -->
 
-<p>
-  <b>Project:</b>
-  <%= @section.project_id %>
-</p>
+<% end %>
 
 
-<%= link_to 'Edit', edit_section_path(@section) %> |
-<%= link_to 'Back', sections_path %>
+
+<% @section.tasks.each do |task| %>
+    <p><h4><%= task.description %></h4></p>
+    <p><h4><%= task.due_date %></h4></p>
+    <p><h4><%= task.complete %></h4></p>
+<% end %>

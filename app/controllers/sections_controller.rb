@@ -40,6 +40,7 @@ class SectionsController < ApplicationController
   # POST /sections
   # POST /sections.json
   def create
+    #@project = Project.find(params[:project_id])
     @section = Section.new(params[:section])
 
     respond_to do |format|

@@ -1,12 +1,14 @@
 Skinner::Application.routes.draw do
 
   resources :projects do
-    resources :sections do
-      resources :tasks do
-        resources :comments
-      end
+    collection do
+      put :update_attribute_on_the_spot
+      get :get_attribute_on_the_spot
     end
   end
+  resources :sections
+  resources :tasks
+  resources :comments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

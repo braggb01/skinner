@@ -1,37 +1,29 @@
 <% content_for :page_title do %>
-      <h1>Projects</h1>
+	<div class="page-header">
+    	<h1>Projects</h1>
+    </div>
 <% end %>
 
 <% content_for :sidebar do %>
-  <%= link_to 'New Project', new_project_path %>
+	<!-- <div class="well"> -->
+		<ul class="nav nav-pills nav-stacked">
+			<li><%= link_to 'New Project', new_project_path %></li>
+			<li><%= link_to "Archived Projects" %></li>
+			<li><%= link_to "Calendar" %></li>
+			<li><%= link_to "Sign In" %></li>
+		</ul>
+	<!-- </div> -->
 <% end %>
 
 
 <ul class="thumbnails">
   <% @projects.each do |project| %>
   <li class="span3">
-    <%= link_to( image_tag( placeholder_image_url "260x180", :bg => "EFEFEF", :fg => "333333", :text => project.title), project, :class => "thumbnail") %>
+    <%= link_to project, :class => "thumbnail" do %>
+      <span><strong><em><%= truncate(project.title) %></em></strong></span>
+    <% end %>
   </li>
   <% end %>
 </ul>
-  
-<!-- <table>
-
-  <tr>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.title %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table> -->
 
 

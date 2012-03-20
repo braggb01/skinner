@@ -22,6 +22,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'simple_form'
+#gem 'best_in_place'
+gem 'on_the_spot'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
