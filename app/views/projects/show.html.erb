@@ -14,23 +14,29 @@
 
 <% end %>
 
-
-<%= form_for(Section.new, :html => {:class => "form-inline"}) do |f| %>
-    <%= f.label "Add a Task:  " %>
-    <%= f.text_field :title %>
-    <%= f.hidden_field :project_id, :value => @project.id %>
-    <%= f.submit "Create", :class => "btn" %>
-<% end %>
-
-<% @project.sections.each do |section| %>
-    <span class="wrapped">
-    	<p class="section">
-    		<%= link_to section.title, section_path(section) %> | <span><%= link_to 'Edit', edit_section_path(section) %></span>
-    	</p>
-		<% section.tasks.each do |task| %>
-	    <p class="task">
-	    	<%= on_the_spot_edit task, :complete, type: :checkbox %><%= on_the_spot_edit task, :description %> | <%= task.due_date %> | <span><%= link_to 'Edit', edit_task_path(task) %><span>
-	    </p>
-	</span>
+<% if !@project.sections.blank? %>
+	<%= form_for(Section.new, :html => {:class => "form-inline"}, :remote => true) do |f| %>
+	    <%= f.label "Add a Task:  " %>
+	    <%= f.text_field :title %>
+	    <%= f.hidden_field :project_id, :value => @project.id %>
+	    <%= f.submit "Create", :class => "btn" %>
 	<% end %>
+	<div id="project-info">
+		<%= render(@project.sections) %>
+	</div>
+<% else %>
+	<div class="span7 offset1">
+		<div class="span5 offset1">
+			<h2>You Don't Have Any Tasks <small>create one below</small></h2>
+		</div>
+		<div class="span5 offset1 well">
+			<div style="text-align:center;">
+				<%= form_for(Section.new, :html => {:class => "form-horizontal"}) do |f| %>
+				    <%= f.text_field :title, :placeholder => "Enter Your Task Name", :class => "span3" %>
+				    <%= f.hidden_field :project_id, :value => @project.id %>
+				    <%= f.submit "Create", :class => "btn btn-primary" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 <% end %>

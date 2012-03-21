@@ -1,5 +1,6 @@
 @import "twitter/bootstrap/bootstrap";
-body {padding-top: 50px;}
+body { padding-top: 50px; }
+
 @import "twitter/bootstrap/responsive";
 
 // Set the correct sprite paths
@@ -16,6 +17,7 @@ body {padding-top: 50px;}
 //
 // Example:
 // @linkColor: #ff0000;
+
 .thumbnail span strong em {
 	width:260px;
 	height:180px;
@@ -29,22 +31,17 @@ body {padding-top: 50px;}
 		text-decoration:none;
 	}
 }
-span.wrapped {
-	margin: 5px 0 10px;
-	p.section {
-		font-size: 18px;
-		font-weight: bold;
-		line-height: 21px;
-		span {
-			font-size: 15px;
-			font-weight: normal;
-		}
+.thumbnails {
+	.badge {
+		position:relative;
+		right: -243px;
+		top: -187px;
+		z-index: 1;
 	}
-	p.task {
-		line-height: 21px;
-		font-style: italic;
-		span {
-
-		}
-	}
+}
+dl dt a, dl dd {
+	color: #333333;
+	font-size: 15px;
+	font-family: "ProximaNova","Helvetica Neue",helvetica,arial,sans-serif;
+	line-height: 20px;
 }

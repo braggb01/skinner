@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
-  can_edit_on_the_spot
   def index
     @projects = Project.all
     @section = Section.new

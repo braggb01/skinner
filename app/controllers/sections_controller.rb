@@ -40,12 +40,13 @@ class SectionsController < ApplicationController
   # POST /sections
   # POST /sections.json
   def create
-    #@project = Project.find(params[:project_id])
+    #@project = Project.find_by_id(params[:project_id])
     @section = Section.new(params[:section])
 
     respond_to do |format|
       if @section.save
-        format.html { redirect_to @section, notice: 'Section was successfully created.' }
+        format.html { redirect_to :back, notice: 'Section was successfully created.' }
+        format.js
         format.json { render json: @section, status: :created, location: @section }
       else
         format.html { render action: "new" }

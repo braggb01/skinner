@@ -22,6 +22,11 @@
     <%= link_to project, :class => "thumbnail" do %>
       <span><strong><em><%= truncate(project.title) %></em></strong></span>
     <% end %>
+    <% if project.tasks.taskcount.count > 0 %>
+      <span class="badge badge-error" id="counter" title="To-Do's Open">
+        <%= project.tasks.taskcount.count %>
+      </span>
+    <% end %>
   </li>
   <% end %>
 </ul>

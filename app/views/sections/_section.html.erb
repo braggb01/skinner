@@ -1,0 +1,6 @@
+<dl>
+	<dt>
+		<%= link_to section.title, section_path(section) %> | <span><%= link_to 'Edit', edit_section_path(section) %></span>
+	</dt>
+	<%= render(section.tasks) %>
+</dl>

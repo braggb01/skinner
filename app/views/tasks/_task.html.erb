@@ -1,0 +1,6 @@
+<dd>
+	<%= form_for task, :remote => true do |f| %>
+		<%= f.check_box :complete, :id => dom_id(task) %> | <%= task.description %> | <%= task.due_date %> | <span><%= link_to 'Edit', edit_task_path(task) %><span>
+	<% end %>
+	
+</dd>
