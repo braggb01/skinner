@@ -3,5 +3,5 @@ class Task < ActiveRecord::Base
 	has_many :comments, :dependent => :destroy
 	accepts_nested_attributes_for :comments, :reject_if => lambda { |a| a[:comment].blank? }, :allow_destroy => true
 
-	scope :taskcount, where('complete = ?', true)
+	scope :taskcount, where('complete = ?', false)
 end

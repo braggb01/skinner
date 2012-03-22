@@ -9,27 +9,32 @@
 		<ul class="nav nav-pills nav-stacked">
 			<li><%= link_to 'Edit', edit_project_path(@project) %></li>
 			<li><%= link_to 'Back', projects_path %></li>
+			<li><%= link_to 'Delete Project', @project, confirm: 'Are you sure?', method: :delete %></li>
 		</ul>
 	<!-- </div> -->
 
 <% end %>
 
 <% if !@project.sections.blank? %>
-	<%= form_for(Section.new, :html => {:class => "form-inline"}, :remote => true) do |f| %>
-	    <%= f.label "Add a Task:  " %>
-	    <%= f.text_field :title %>
-	    <%= f.hidden_field :project_id, :value => @project.id %>
-	    <%= f.submit "Create", :class => "btn" %>
-	<% end %>
-	<div id="project-info">
-		<%= render(@project.sections) %>
+	<div class="span10">
+		<span>
+			<%= form_for(Section.new, :html => {:class => "form-inline"}, :remote => true) do |f| %>
+			    <%= f.text_field :title, :placeholder => "Create A New Task" %>
+			    <%= f.hidden_field :project_id, :value => @project.id %>
+			    <%= f.submit "Create", :class => "btn" %>
+			<% end %>
+		</span>
+		<hr/>
+		<div id="project-info">
+			<%= render(@project.sections) %>
+		</div>
 	</div>
 <% else %>
-	<div class="span7 offset1">
-		<div class="span5 offset1">
+	<div class="span10">
+		<div class="span6 offset2">
 			<h2>You Don't Have Any Tasks <small>create one below</small></h2>
 		</div>
-		<div class="span5 offset1 well">
+		<div class="span6 offset2 well">
 			<div style="text-align:center;">
 				<%= form_for(Section.new, :html => {:class => "form-horizontal"}) do |f| %>
 				    <%= f.text_field :title, :placeholder => "Enter Your Task Name", :class => "span3" %>

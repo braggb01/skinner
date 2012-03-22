@@ -1,4 +1,9 @@
-$('#test').live('change',function(){
-      $(this).parents('#edit_task_1').submit();
-      alert("success");
-});
+// $(function() {
+// 	if ( $('input#task_complete').prop("checked") ) {
+// 		$(this).parent("dd").addClass('completed');
+// 	} else {
+// 		$(this).parent("dd").removeClass('completed');
+// 	}
+// });
+// $("#project-info").update("<%= escape_javascript(render(@task)) %>");
+$("#tasklist_<%=j @task.id.to_s %>").html("<%=j render @task %>");

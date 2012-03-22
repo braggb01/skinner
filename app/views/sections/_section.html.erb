@@ -1,6 +1,6 @@
-<dl>
+<dl class="section_well" id="<%= dom_id(section) %>">
 	<dt>
-		<%= link_to section.title, section_path(section) %> | <span><%= link_to 'Edit', edit_section_path(section) %></span>
+		<%= link_to section.title, section_path(section) %> | <span><%= link_to 'Edit', edit_section_path(section) %></span><span class="pull-right"><%= link_to 'x', section, :class => "close", confirm: 'Are you sure?', method: :delete, :remote => true, :title => "Delete Task" %></span>
 	</dt>
 	<%= render(section.tasks) %>
 </dl>

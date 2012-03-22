@@ -2,5 +2,5 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-	$("#<%= dom_id(@task) %>").live "change", ->
-	  $(this).parents("#edit_<%= dom_id(@task) %>").submit()
+	$("input#task_complete").live "change", ->
+	  $(this).parent("form").submit()

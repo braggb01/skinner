@@ -78,8 +78,9 @@ class SectionsController < ApplicationController
     @section.destroy
 
     respond_to do |format|
-      format.html { redirect_to sections_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
+      format.js
     end
   end
 end
