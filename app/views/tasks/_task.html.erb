@@ -3,6 +3,6 @@
 		<%= form_for task, :remote => true do |f| %>
 			<%= f.check_box :complete %>    <%= link_to task.description.titleize, task, :class => 'todo_link' %>    <span class="label label-info"><%= task.due_date %></span>
 		<% end %>
-		
 	</dd>
 </span>
+

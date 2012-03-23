@@ -3,3 +3,5 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
 	$('.close').tooltip('hide')
+	$("#test_link").click ->
+  		$("#testing").toggle()
