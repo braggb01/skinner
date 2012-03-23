@@ -1,8 +1,10 @@
 <span id="tasklist_<%= task.id %>">
-	<dd <% if task.complete? %>class="completed"<% else %><% end %>>
+	<li <% if task.complete? %>class="completed"<% else %><% end %>>
 		<%= form_for task, :remote => true do |f| %>
-			<%= f.check_box :complete %>    <%= link_to task.description.titleize, task, :class => 'todo_link' %>    <span class="label label-info"><%= task.due_date %></span>
+			<div class="task_it">
+				<%= f.check_box :complete %>    <%= link_to task.description.titleize, task, :class => 'todo_link' %>    <span class="label label-info"><%= task.due_date %></span>
+			</div>
 		<% end %>
-	</dd>
+	</li>
 </span>
 

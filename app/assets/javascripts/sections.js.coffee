@@ -4,4 +4,4 @@
 jQuery ->
 	$('.close').tooltip('hide')
 	$("#test_link").click ->
-  		$("#testing").toggle()
+  		$(".testing").toggle()

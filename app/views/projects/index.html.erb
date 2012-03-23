@@ -27,7 +27,7 @@
         <span class="projtitle"><strong><em><%= truncate(project.title, :length => 20) %></em></strong></span>
         <% if project.tasks.taskcount.count > 0 %>
           <span class="badge badge-info" id="counter" title="To-Do's Open">
-            <%= project.tasks.taskcount.count %>
+            <%= project.tasks.taskcount.count %> open to-do<% unless project.tasks.taskcount.count == 1 %>'s<% end %>
           </span>
         <% end %>
       </article>
