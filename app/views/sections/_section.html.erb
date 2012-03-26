@@ -1,11 +1,9 @@
-<!-- <dl class="section_well" id="<%= dom_id(section) %>">
-	<dt>
+<ul id="<%= dom_id(section) %>" class="section_well">
+	<%= content_tag_for :li, section do %>
 		<%= link_to section.title, section_path(section) %> | <span><%= link_to 'Edit', edit_section_path(section) %></span><span class="pull-right"><%= link_to 'x', section, :class => "close", confirm: 'Are you sure?', method: :delete, :remote => true, :title => "Delete Task" %></span>
-	</dt>
-	<span id="task_container">
 		<%= render(section.tasks) %>
-	</span>
-	<div class="testing">
+	<% end %>
+	<div id="todo_form_<%= dom_id(section) %>" class="collapse in">
 		<%= form_for(Task.new, :html => {:class => "form-inline"}, :remote => true) do |f| %>
 		    <%= f.text_field :description, :placeholder => "To Do Name" %>
 		    <%= f.date_select :due_date %>
@@ -14,25 +12,5 @@
 		    <%= f.submit "Create", :class => "btn" %>
 		<% end %>
 	</div>
-	<%= link_to 'Add a to-do', '', :id => 'test_link', :remote => true %>
-</dl> -->
-<div class="section_well" id="<%= dom_id(section) %>">
-	<ul>
-		<li>
-			<%= link_to section.title, section_path(section) %> | <span><%= link_to 'Edit', edit_section_path(section) %></span><span class="pull-right"><%= link_to 'x', section, :class => "close", confirm: 'Are you sure?', method: :delete, :remote => true, :title => "Delete Task" %></span>
-			<ul id="task_container">
-				<%= render(section.tasks) %>
-			</ul>
-		</li>
-	</ul>
-	<div class="testing">
-		<%= form_for(Task.new, :html => {:class => "form-inline"}, :remote => true) do |f| %>
-		    <%= f.text_field :description, :placeholder => "To Do Name" %>
-		    <%= f.date_select :due_date %>
-		    <%= f.check_box :complete %>
-		    <%= f.hidden_field :section_id, :value => section.id %>
-		    <%= f.submit "Create", :class => "btn" %>
-		<% end %>
-	</div>
-	<%= link_to 'Add a to-do', '', :id => 'test_link', :remote => true %>
-</div>
+	<%= link_to 'Add a to-do', '', 'data-toggle' => 'collapse', 'data-target' => '#todo_form_' + dom_id(section), :remote => true %>
+</ul>

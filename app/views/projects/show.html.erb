@@ -16,15 +16,15 @@
 <% end %>
 
 <% if !@project.sections.blank? %>
-	<div class="span9">
-		<span>
-			<%= form_for(Section.new, :html => {:class => "form-inline"}, :remote => true) do |f| %>
-			    <%= f.text_field :title, :placeholder => "Create A New Task" %>
-			    <%= f.hidden_field :project_id, :value => @project.id %>
-			    <%= f.submit "Create", :class => "btn" %>
-			<% end %>
-		</span>
+	<div class="row">
+		<%= form_for(Section.new, :html => {:class => "form-inline"}, :remote => true) do |f| %>
+		    <%= f.text_field :title, :placeholder => "Create A New Task" %>
+		    <%= f.hidden_field :project_id, :value => @project.id %>
+		    <%= f.submit "Create", :class => "btn" %>
+		<% end %>
 		<hr/>
+	</div>
+	<div class="row">
 		<div id="project-info">
 			<%= render(@project.sections) %>
 		</div>

@@ -4,3 +4,5 @@
 jQuery ->
 	$("input#task_complete").live "change", ->
 	  $(this).parent("form").submit()
+	$('#tasks').sortable
+		axis: 'y'
